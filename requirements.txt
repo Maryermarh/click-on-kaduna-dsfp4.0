@@ -2,4 +2,6 @@ streamlit
 numpy
 scikit-learn
 pandas
-
+joblib
+scipy
+threadpoolctl
