@@ -1,7 +1,8 @@
 import streamlit as st
 import numpy as np 
-import pandas as pd 
 import pickle
+import sklearn
+
 
 
 #load the model 
@@ -9,8 +10,12 @@ with open('stroke_model.pkl','rb') as file:
     model = pickle.load(file)
  # streamlit UI
 st.title('stroke Prediction App')
-st.write('this app predicts the *stroke* type!')
-st.write('please input the following parameters:')
+st.markdown("""
+### **🩺 Discover Your Stroke Risk with My Prediction App!**  
+This app helps predict the likelihood of a stroke based on medical and lifestyle inputs.  
+Fill in the details below and click **Predict** to see your results.  
+""")
+
 
 #input form
 sex = st.selectbox("Sex", ["Male", "Female"])
@@ -43,10 +48,9 @@ if st.button("Stroke"):
     st.success(f"Stroke Prediction: {'Yes' if prediction[0] == 1 else 'No'}")
 
 
-
-    #footer
-    st.write('Made with Streamlit')
-    st.write('By: Maryam Ibrahim Hamza')
+#footer
+st.write('NOTE: The risk of having a stroke depends on various factors, including lifestyle, medical history, and age, with older age being a significant determinant. Please consult a healthcare professional for medical advice.')
 
 
-             
+st.write('Click-On Kaduna DSFP')
+st.write('By: Maryam Ibrahim Hamza')
